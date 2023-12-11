@@ -5,49 +5,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <title>Vue slider</title>
 </head>
 
 <body>
-    <!-- main page wrapper -->
-    <div id="wrapper">
-        <!-- Vue application id -->
         <div id="app">
-            <!-- container -->
             <div class="container">
-                <!-- slider -->
                 <div class="slider-wrapper" tabindex="0">
-                    <!-- item-container -->
-                    <div class="item">
-                        <img src="img/01.webp" alt="Spiderman" />
+                    
+                    <div class="item"  v-on:mouseover="stop()" v:on:mouseleave="start()">
+                        <img :src="game.images[activeItem]" :alt="game.titles[activeItem]">
                         <div class="text">
-                            <h3>Spiderman</h3>
+                            <h3>{{game.titles[activeItem]}}</h3>
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                                tempore aliquid deleniti aut
-                                veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                                corporis.
+                               {{game.descriptions[activeItem]}}
                             </p>
                         </div>
                     </div>
-    
+                    
                     <div class="thumbs">
-                        <div class="prev"></div>
-                        <div class="next"></div>
-                        <div class="thumb active">
-                            <img :src="images.image" alt="Svezia" />
+                        <div @click="prevImg()" class="prev"></div>
+                        <div @click="nextImg()" class="next"></div>
+                        <div class="thumb">
+                            <img v-for="(image, i) in game.images" :key="i" :src="image" :class="activeItem === i ? 'active' : 'unactive'">
                         </div>
                     </div>
-    
+                    
                 </div>
             </div>
-    
+            
         </div>
-
-    </div>
-
     <script src="js/script.js"></script>
 </body>
 
