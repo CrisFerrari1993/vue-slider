@@ -49,8 +49,11 @@
     height: 100%;
     object-fit: cover;
 }
-
 .thumb.active {
+    border: 2px solid;
+    opacity: 1;
+}
+.thumbActive {
     border: 2px solid #ccc;
     opacity: 1;
 }
