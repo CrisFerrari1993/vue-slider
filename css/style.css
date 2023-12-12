@@ -5,8 +5,6 @@
 }
 
 .container {
-    background-image: url(https:png.pngtree.com/background/20211215/original/pngtree-playstation-neon-sign-pattern-background-picture-image_1470915.jpg);
-    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,7 +14,7 @@
 .item {
     float: left;
     width: 700px;
-    height: 316px;
+    height: 300px;
     position: relative;
 }
 
@@ -37,11 +35,13 @@
 .thumbs {
     float: left;
     height: 300px;
+    background: #000;
     position: relative;
 }
 
 .thumb {
     height: calc((300px) / 5);
+    opacity: 0.5;
 }
 
 .thumb img {
@@ -49,16 +49,14 @@
     height: 100%;
     object-fit: cover;
 }
-.unactive{
-    background: #000;
-    filter: opacity(0.5);
-}
-.active {
+
+.thumb.active {
     border: 2px solid #ccc;
     opacity: 1;
 }
 
-.prev, .next {
+.prev,
+.next {
     width: 20px;
     height: 20px;
     margin: 10px 0;
